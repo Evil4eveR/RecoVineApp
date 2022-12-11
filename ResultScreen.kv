@@ -1,0 +1,328 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	name : 'Result_Screen'
+
+	MDBoxLayout :
+		orientation : 'vertical'
+		MDToolbar:
+            title: "Result"
+            elevation: 0
+            radius :dp(10)
+            md_bg_color: app.theme_cls.primary_dark
+            specific_text_color: 'white'
+            name :'mian_screen'
+            left_action_items:[['arrow-left', lambda x:app.change_screen(self.name)]]
+		MDBoxLayout :
+            orientation :'vertical'
+            size_hint: 1,1
+            padding : [dp(15),dp(10),dp(15),dp(20)]
+            spacing : dp(10)
+            MDBoxLayout :
+                orientation :'vertical'
+                size_hint: 1,0.1
+                md_bg_color : app.theme_cls.primary_dark
+                radius : dp(10)
+                MDLabel :
+                    text : 'THE RESULT'
+                    size_hint_x : 1
+                    halign :'center'
+                    color : 'white'
+                    font_size : dp(28)
+                    bold : True
+
+            MDBoxLayout :
+                id : BoxLayResult
+                orientation :'vertical'
+                size_hint: 1,0.6
+                md_bg_color : app.theme_cls.primary_dark
+                radius : dp(10)
+				padding : dp(5)
+                spacing :dp(5)
+
+                MDBoxLayout :
+                    orientation :'vertical'
+                    padding : [dp(10),dp(5),dp(190),dp(10)]
+                    spacing :dp(5)
+	                MDBoxLayout :
+		                orientation :'horizontal'
+		                size_hint: 1,0.4
+		                md_bg_color :app.theme_cls.primary_dark
+		                radius : dp(10)
+		                spacing : dp(10)
+		                FitImage :
+		                    id : Image_Result01
+		                    source : 'image/root.jpg'
+		                    radius : [100,70,100,70]
+		                    size_hint : 0.0001,1
+		                FitImage :
+		                    id : Image_Result02
+		                    source : 'image/root.jpg'
+		                    radius : [70,70,70,70]
+		                    size_hint : 0.0001,1
+		                FitImage :
+		                    id : Image_Result03
+		                    source : 'image/root.jpg'
+		                    radius : [70,70,70,70]
+		                    size_hint : 0.0001,1
+
+		            MDBoxLayout :
+		                orientation :'horizontal'
+		                size_hint: 1,0.25
+		                radius : dp(10)
+		                spacing : dp(10)
+		                MDCard :
+		                    elevation : 0
+		                    size_hint : 0.5,1
+		                    radius : dp(5)
+		                    padding :[dp(10),0,0,0]
+		                    md_bg_color : app.theme_cls.primary_dark
+		                    MDLabel :
+		                        text :''
+		                        size_hint_x : 1
+		                        haling : 'center'
+		                        font_size : dp(11)
+
+		                MDCard :
+		                    size_hint : 0.5,1
+		                    radius : dp(5)
+		                    padding :[dp(10),0,0,0]
+		                    elevation : 0
+		                    md_bg_color : app.theme_cls.primary_dark
+		                    MDLabel :
+		                        text :''
+		                        size_hint_x : 1
+		                        haling : 'center'
+		                        font_size : dp(11)
+		                MDCard :
+		                    size_hint : 0.5,1
+		                    radius : dp(5)
+		                    padding :[dp(10),0,0,0]
+		                    md_bg_color : app.theme_cls.primary_dark
+		                    elevation : 0
+		                    MDLabel :
+		                        text :''
+		                        size_hint_x : 1
+		                        haling : 'center'
+		                        font_size : dp(11)
+	            MDBoxLayout :
+	                id : BoxLy_Progress
+	                orientation :'horizontal'
+	                size_hint: 1,1
+	                md_bg_color : app.theme_cls.primary_light
+	                radius : dp(10)
+	                padding : [dp(10),dp(5),dp(10),0]
+	                MDBoxLayout :
+		                orientation :'vertical'
+		                size_hint: 0.25,1
+		                radius : dp(10)
+		                padding : [dp(15),0,0,0]
+		                FitImage :
+		                    id : Image_Result04
+		                    source : 'image/root.jpg'
+		                    radius : [70,70,70,70]
+		                    size_hint : 0.45,1
+		                MDLabel :
+		                    id : Result_Name01
+	                        text :'Name'
+	                        size_hint_x : 1
+	                        pos_hint_x : {'center' : 1}
+	                        haling : 'center'
+	                        font_size : dp(12)
+	                        bold : True
+
+	                MDBoxLayout :
+		                orientation :'vertical'
+		                size_hint: 0.35,1
+		                radius : dp(10)
+		                padding :dp(10)
+		                MDLabel :
+	                        text :'About'
+	                        size_hint_x : 1
+	                        pos_hint_x : {'center' : 1}
+	                        font_size : dp(12)
+	                        bold : True
+	                    ScrollView :
+		                    id : active_scroll
+		                    do_scroll_y: True
+							adaptive_height :True
+			                MDGridLayout :
+			                    padding : [0,dp(100),0,dp(100)]
+				                #orientation :'vertical'
+				                size_hint_x: 1
+				                size_hint_y :None
+				                #height : dp(200)
+				                cols :1
+				                adaptive_height :True
+			                    MDLabel :
+			                        id : Result_text01
+			                        text :'it uteufle and haod many feature many pople love to use it evry day   '
+			                        size_hint_x : 1
+			                        haling : 'center'
+			                        height: self.texture_size[1]
+			                        font_size : dp(11)
+			                        bold : False
+		            MDBoxLayout :
+		                orientation :'vertical'
+		                size_hint: 0.1,1
+		                radius : dp(10)
+		                padding : [0,0,0,dp(20)]
+		                MDIconButton:
+                            icon: "open-in-new"
+						    md_bg_color: app.theme_cls.primary_color
+						    text_size :'15sp'
+						    user_font_size :'18sp'
+						    text_color : get_color_from_hex("#0000000")
+						    on_release :
+						        app.Open_WebSite(*args)
+
+
+                MDBoxLayout :
+	                orientation :'horizontal'
+	                size_hint: 1,1
+	                md_bg_color : app.theme_cls.primary_light
+	                radius : dp(10)
+	                padding : [dp(10),0,dp(10),0]
+	                MDBoxLayout :
+		                orientation :'vertical'
+		                size_hint: 0.25,1
+		                radius : dp(10)
+		                padding : [dp(15),0,0,0]
+		                FitImage :
+		                    id : Image_Result05
+		                    source : 'image/root.jpg'
+		                    radius : [70,70,70,70]
+		                    size_hint : 0.5,1
+		                MDLabel :
+		                    id : Result_Name02
+	                        text :'Name'
+	                        size_hint_x : 1
+	                        pos_hint_x : {'center' : 1}
+	                        haling : 'center'
+	                        font_size : dp(12)
+	                        bold : True
+
+	                MDBoxLayout :
+		                orientation :'vertical'
+		                size_hint: 0.35 , 1
+		                radius : dp(10)
+		                padding :dp(10)
+		                MDLabel :
+                            text :'About'
+	                        size_hint_x : 1
+	                        pos_hint_x : {'center' : 1}
+	                        font_size : dp(12)
+	                        bold : True
+
+		                ScrollView :
+		                    id : active_scroll
+		                    do_scroll_y: True
+			                MDBoxLayout :
+				                orientation :'vertical'
+				                size_hint_x: 1
+				                size_hint_y :None
+				                height : dp(200)
+			                    MDLabel :
+			                        id : Result_text02
+			                        text :'it uteufle and haod many feature many pople love to use it evry day   '
+			                        size_hint_x : 1
+			                        haling : 'center'
+			                        font_size : dp(11)
+			                        bold : False
+
+		            MDBoxLayout :
+		                orientation :'vertical'
+		                size_hint: 0.1,1
+		                radius : dp(10)
+		                padding : [0,0,0,dp(20)]
+		                MDIconButton:
+                            icon: "open-in-new"
+						    md_bg_color: app.theme_cls.primary_color
+						    text_size :'15sp'
+						    user_font_size :'18sp'
+						    text_color : get_color_from_hex("#0000000")
+						    on_release :
+						        app.Open_WebSite(*args)
+                MDBoxLayout :
+	                orientation :'vertical'
+	                size_hint: 1,0.2
+	                radius : dp(10)
+            MDBoxLayout :
+                orientation :'horizontal'
+                size_hint: 1,0.2
+				radius : dp(10)
+				spacing : dp(0)
+
+				MDCard :
+					padding : [dp(30),0,0,0]
+					orientation : "vertical"
+					size_hint : 0.5,1
+					elevation: 0
+					name : 'share_screen'
+					on_release :
+						app.change_screen(self.name)
+					FitImage :
+	                    source : 'image/shar.png'
+	                    radius : [70,70,70,70]
+	                    size_hint : 0.6,1
+	                MDLabel :
+                        text :'Share'
+                        size_hint_x : 1
+                        pos_hint_x : {'center_x' : 1}
+                        haling : 'center'
+                        font_size : dp(16)
+                        bold : True
+
+				MDCard :
+					elevation: 0
+					size_hint : 0.5,1
+					orientation : "vertical"
+					size_hint : 0.5,1
+					padding : [dp(30),0,0,0]
+					name : 'Save_screen'
+					on_release :
+						app.Save_Image(*args)
+					FitImage :
+	                    source : 'image/file1.png'
+	                    radius : [70,70,70,70]
+	                    size_hint : 0.6,1
+	                MDLabel :
+                        text :'Save'
+                        size_hint_x : 1
+                        pos_hint_x : {'center_x' : 1}
+                        haling : 'center'
+                        font_size : dp(16)
+                        bold : True
+				MDCard :
+					elevation: 0
+					size_hint : 0.5,1
+					orientation : "vertical"
+					size_hint : 0.5,1
+					padding : [dp(30),0,0,0]
+					name : 'Save_screen'
+
+					on_release :
+						app.Verification(self.name)
+					FitImage :
+	                    source : 'image/delete.png'
+	                    radius : [70,70,70,70]
+	                    size_hint : 0.6,1
+	                MDLabel :
+                        text :'Delete'
+                        size_hint_x : 1
+                        pos_hint_x : {'center_x' : 1}
+                        haling : 'center'
+                        font_size : dp(16)
+                        bold : True
+
+
+<SDsr> :
+	size_hint_y:None
+	orientation :'vertical'
+	padding : [dp(10),dp(30),dp(10),dp(30)]
+    size_hint_y: None
+    height: "120dp"
+	MDSpinner:
+        size_hint: None, None
+        size: dp(46), dp(46)
+        pos_hint: {'center_x': .5, 'center_y': 1}
+        active: True

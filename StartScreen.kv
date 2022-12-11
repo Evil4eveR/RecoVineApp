@@ -1,0 +1,69 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	name : 'Start_screen'
+	MDBoxLayout :
+		orientation : 'vertical'
+		size_hint: 1,1
+		spacing :dp(30)
+		MDBoxLayout :
+			orientation : 'vertical'
+			md_bg_color: app.theme_cls.primary_dark
+			size_hint: 1,0.6
+			padding :[dp(10),0,dp(10),dp(20)]
+			spacing :dp(0)
+			radius : [dp(10000),0,dp(10000),0]
+			MDLabel :
+				text :'RECIO VINE APP'
+				font_name : 'Lobster'
+                size_hint_x : 0.97
+                halign :'center'
+                font_size : dp(24)
+				bold : True
+				color : 'white'
+            Image:
+                source:"img/1.png"
+                size_hint:.95,.95
+                pos_hint:{"center_x":.5,"center_y":.8}
+			MDLabel :
+				text : 'Recognizing the types of \n the vine based on the\n image of list leaves  '
+				size_hint_x : 0.97
+                halign :'center'
+                font_name : 'MPoppins'
+                font_size : dp(20)
+				bold : True
+				color : (1,1,1,0.7)
+		MDBoxLayout :
+			orientation : 'vertical'
+			spacing : dp(30)
+			size_hint : 1,0.4
+			padding : [dp(30),0,dp(30),0]
+			Button
+                text : 'Get Started'
+                background_color : 0,0,0,0
+                font_name : 'MPoppins'
+                font_size :'20sp'
+                size_hint :0.8,0.2
+                pos_hint : {"center_x": 0.5,'center_y': 0.8}
+                name : 'mian_screen'
+                on_release :
+                    app.change_screen01(*args)
+
+                canvas.before :
+                    Color :
+                        rgb : app.theme_cls.primary_dark
+                    RoundedRectangle :
+                        size : self.size
+                        pos : self.pos
+                        radius : [20]
+            MDBoxLayout :
+				orientation : 'horizontal'
+				md_bg_color: app.theme_cls.primary_dark
+				spacing :dp(0)
+				radius : [0,dp(10000),0,dp(10000)]
+				MDLabel :
+				    text:"2022 ELTE-IK (NWYUK6) \n All Rights Reserved ©"
+                    pos_hint:{"center_x":.5,"center_y": .35}
+                    halign:"center"
+                    theme_text_color:"Custom"
+                    text_color: (1,1,1,1)
+                    font_size:"13sp"

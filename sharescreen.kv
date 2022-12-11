@@ -1,0 +1,100 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	#import webbrowser
+    name :'share_screen'
+    MDBoxLayout :
+		orientation : 'vertical'
+		size_hint: 1,1
+		MDBoxLayout :
+			orientation : 'horizontal'
+			size_hint: 1,0.13
+			md_bg_color :app.theme_cls.primary_dark
+			padding :[dp(10),dp(10),dp(10),dp(10)]
+			spacing :dp(10)
+			MDIconButton:
+                icon: "arrow-left"
+			    text_size :'15sp'
+			    user_font_size :'24sp'
+			    text_color : get_color_from_hex("#0000000")
+			    pos_hint_y :{'center_y' : 0.5}
+			    name : "mian_screen"
+			    on_release :
+			        app.change_screen(self.name)
+			MDLabel :
+				text : 'Share'
+				font_name : 'MPoppins'
+			    font_size :'20sp'
+				size_hint_x: 1
+				bold :True
+				pos_hint_x:{'center_x':10}
+				color : get_color_from_hex('#ffffff')
+		MDBoxLayout :
+			orientation : 'vertical'
+			size_hint: 1,0.8
+			padding :[dp(160),dp(80),dp(160),dp(80)]
+			spacing :dp(10)
+	        MDCard :
+	            orientation :'vertical'
+				radius :[dp(100),dp(100),dp(100),dp(100)]
+				elevation : 0
+				on_release:
+                    import webbrowser
+                    webbrowser.open('https://www.facebook.com/evil4ever.Hisoka/')
+	            FitImage :
+	                source :'Image/fb.png'
+	                radius :[dp(100),dp(100),dp(100),dp(100)]
+	                size_hint : 1,1
+	                elevation : 0
+	        MDCard :
+	            orientation :'vertical'
+				radius :[dp(100),dp(100),dp(100),dp(100)]
+				elevation : 0
+				on_release:
+                    import webbrowser
+                    webbrowser.open('https://twitter.com/MARMOUD04YASSIN')
+	            FitImage :
+	                source :'Image/twitter.png'
+	                radius :[dp(100),dp(100),dp(100),dp(100)]
+	                size_hint : 1,1
+	                elevation : 0
+	        MDCard :
+	            orientation :'vertical'
+				radius :[dp(100),dp(100),dp(100),dp(100)]
+				elevation : 0
+				on_release:
+                    import webbrowser
+                    webbrowser.open('https://www.whatsapp.com/')
+	            FitImage :
+	                source :'Image/wattsapp.png'
+	                radius :[dp(100),dp(100),dp(100),dp(100)]
+	                size_hint : 1,1
+	                elevation : 0
+	        MDCard :
+	            orientation :'vertical'
+				radius :[dp(100),dp(100),dp(100),dp(100)]
+				elevation : 0
+				on_release :
+					import webbrowser
+                    webbrowser.open('https://mail.google.com')
+	            FitImage :
+	                source :'Image/gmail.png'
+	                radius :[dp(100),dp(100),dp(100),dp(100)]
+	                size_hint : 1,1
+	                elevation : 0
+
+	        MDCard :
+	            orientation :'vertical'
+				radius :[dp(100),dp(100),dp(100),dp(100)]
+				elevation : 0
+				on_release :
+					import webbrowser
+                    webbrowser.open('https://people.inf.elte.hu/nwyuk6')
+	            FitImage :
+	                source :'Image/google4.png'
+	                radius :[dp(100),dp(100),dp(100),dp(100)]
+	                size_hint : 1,1
+	                elevation : 0
+
+
+
+

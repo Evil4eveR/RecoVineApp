@@ -1,0 +1,149 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	name : 'Save_screen'
+	MDBoxLayout :
+		orientation : 'vertical'
+		size_hint: 1,1
+		MDBoxLayout :
+			orientation : 'horizontal'
+			md_bg_color: app.theme_cls.primary_dark
+			size_hint: 1,0.14
+			padding :[dp(10),0,dp(10),dp(20)]
+			spacing :dp(40)
+			MDIconButton:
+                icon: "home"
+			    text_size :'15sp'
+			    user_font_size :'24sp'
+			    text_color : get_color_from_hex("#0000000")
+			    name : 'mian_screen'
+			    on_release :
+			        app.change_screen(self.name)
+			MDCard :
+				id :Card_Search
+				size_hint : 0.1,0.8
+				radius : dp(20)
+				elevation : 0
+				MDBoxLayout :
+					orientation : 'horizontal'
+					MDBoxLayout :
+						orientation : 'horizontal'
+						padding : [dp(20),0,0,dp(5)]
+						MDTextField:
+		                    hint_text: 'Search'
+							size_hint_x : 0.3
+							pos_hint : {'center_y': 0.5}
+				            color : app.theme_cls.primary_dark
+							font_size : dp(14)
+		                    bold : True
+					MDBoxLayout :
+						orientation : 'horizontal'
+						size_hint : 0.3,1
+						padding : [0,dp(40),0,0]
+						MDIconButton:
+		                    icon: "magnify"
+		                    text_size :'15sp'
+					        user_font_size :'24sp'
+
+
+
+		MDBoxLayout :
+	        orientation :'vertical'
+	        size_hint: 1,0.8
+	        padding : [dp(15),dp(0),dp(15),dp(20)]
+	        spacing : dp(10)
+	        ScrollView :
+                do_scroll_x :False
+                do_scroll_y: True
+                body :1
+                bar_color:app.theme_cls.primary_dark
+	            MDGridLayout  :
+	                id : SaveCard
+	                cols : 1
+	                rows : 1000
+	                size_hint_y : None
+	                height : dp(1000)
+					spacing : dp(30)
+					padding : [0,dp(10),0,0]
+
+
+
+
+
+
+
+
+
+
+
+<MD_relativelayout01> :
+	text :''
+	source:''
+	name : ''
+	text01 : ''
+	id :bilal0
+	size_hint_y : None
+	height :'90dp'
+	md_bg_color: app.theme_cls.primary_dark
+	radius : dp(20)
+	MDCard :
+		orientation : 'vertical'
+		md_bg_color: app.theme_cls.primary_dark
+		radius : dp(20)
+		MDBoxLayout :
+			orientation : 'horizontal'
+			padding: [10,10,10,10]
+			spacing : dp(3)
+			MDBoxLayout :
+				orientation : 'horizontal'
+				padding: [0,10,20,20]
+				size_hint_x : 0.3
+				MDIconButton:
+	                icon: "delete"
+				    text_size :'15sp'
+				    user_font_size :'30sp'
+				    icon_color : get_color_from_hex("#0000000")
+				    text_color : get_color_from_hex("#0000000")
+				    pos_hint_y :{'center_y' : 0.5}
+				    on_release :
+				        app.Remove_MDCard()
+			MDBoxLayout :
+				orientation : 'vertical'
+				padding: [30,0,0,0]
+				size_hint_x : 1
+				MDBoxLayout :
+					orientation : 'horizontal'
+					padding : [dp(40),0,0,0]
+					MDLabel :
+						font_name : 'MPoppins'
+					    font_size :'15sp'
+						text :root.text
+						haling : 'center'
+						size_hint_x: 1
+						pos_hint_x:{'center_x':10}
+						bold : True
+				MDBoxLayout :
+					orientation : 'horizontal'
+					MDLabel :
+						font_name : 'MPoppins'
+					    font_size :'13sp'
+						text :root.text01
+						size_hint_x: 1
+						pos_hint_x:{'center_x':10}
+			MDBoxLayout :
+				orientation : 'horizontal'
+				padding: [10,0,10,20]
+				size_hint_x : 0.55
+				spacing : dp(10)
+				MDRoundFlatButton:
+	                text: "Check"
+	                text_color: 1, 1, 1, 1
+	                size_hint_x :None
+	                line_color : get_color_from_hex("#F9C449")
+	                text_color : get_color_from_hex("#F9C449")
+	                bold :True
+	                name : 'View_Result_Screen'
+	                on_press :
+	                    app.change_screen(self.name)
+
+
+

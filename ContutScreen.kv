@@ -1,0 +1,74 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	name : 'About_Screen'
+	MDBoxLayout :
+		orientation : 'vertical'
+		MDToolbar:
+            title: "About US"
+            elevation: 0
+            radius :dp(10)
+            md_bg_color: app.theme_cls.primary_dark
+            name :'mian_screen'
+            left_action_items:[['arrow-left', lambda x:app.change_screen(self.name)]]
+        MDBoxLayout :
+            orientation :'vertical'
+            ScrollView :
+	            do_scroll_y: True
+		        MDBoxLayout :
+		            orientation : 'vertical'
+		            height : '1000dp'
+		            padding : [dp(15),dp(10),dp(15),dp(20)]
+		            spacing : dp(10)
+					size_hint_y :None
+					MDBoxLayout :
+			            orientation :'vertical'
+			            size_hint: 0.95,0.05
+			            padding : [dp(100),0,dp(50),0]
+
+			            FitImage :
+			                source : 'Image/about.PNG'
+		                    size_hint : 0.8,1
+		                    radius : [100,100,100,80]
+		            MDBoxLayout :
+			            orientation :'vertical'
+			            size_hint: 1,0.01
+			            MDLabel :
+		                    text : 'About US'
+		                    size_hint_x : 1
+		                    halign :'center'
+		                    color : app.theme_cls.primary_dark
+		                    font_size : dp(26)
+		                    bold : True
+		            MDBoxLayout :
+			            orientation :'vertical'
+			            size_hint: 1,0.2
+						padding : [dp(15),0,dp(5),5]
+			            MDLabel :
+		                    text : 'The     department   of    Data    Science   and \nEngineering  at the Faculty of  Informatics of \nELTE   is     conducting   a  project   aimed  at \nrecognizing  the types of  the  vine  based on\nthe  image   of   its   leaves.  The   underlying\nmachine  learning   methods  are  developed\nby Jose Luis  Seixas Junior  a Phd student at \nthe department  \n \nThe    goal    of   the   thesis  is  to   develop a \nmobile    application   supporting   the   given  \nproject  in  which  a  person  makes  a  photo \nand  receives  the  recommendation  ranking \nfor the type of the related vine.\n \nThe   application   should   be   user-friendly, \nworking  in  both  online  and    offline  mode\nand   its    requirements    for   the   technical \ninfrastructure  (i.e.   the  performance   of  a \nmobile   device )    should   be    as    low    as \npossible  in  order to  be   used   on    various \ndevices and platforms.'
+		                    haling : 'center'
+		                    color : app.theme_cls.primary_dark
+		                    font_size : dp(16)
+		                    bold : True
+		            MDBoxLayout :
+			            orientation :'vertical'
+			            size_hint: 0.75,0.02
+			            padding : [dp(140),0,dp(50),0]
+
+			            FitImage :
+			                source : 'Image/github.PNG'
+		                    size_hint : 0.8,1
+		                    radius : [100,100,100,80]
+		            MDBoxLayout :
+			            orientation :'vertical'
+			            size_hint: 1,0.03
+			            padding : [dp(40),0,dp(50),0]
+		                MDLabel :
+		                    text : 'RiconVine \n Verison \n All Rights Reserved'
+		                    size_hint_x : 1
+		                    halign :'center'
+		                    color : app.theme_cls.primary_dark
+		                    font_size : dp(12)
+		                    bold : True
+
+
+

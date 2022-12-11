@@ -1,0 +1,47 @@
+{
+    "0":[
+    {
+        "Name":"Cabernet Franc",
+        "VineImg":"\/Cabernet_Franc\/Cabernet_Francgrape.jpg",
+        "Bottle1":"\/Cabernet_Franc\/Cabernet_Franc.jpg",
+        "Bottle2":"\/Cabernet_Franc\/Cabernet_Franc.png",
+        "info":"\/Cabernet_Franc\/Cabernet_Franc.txt",
+        "wiki":"https://hu.wikipedia.org/wiki/Cabernet_franc"
+    }],
+    "1":[
+    {
+        "Name":"Kekfrankos",
+        "VineImg":"\/Kekfrankos\/Kekfrankosgrape.jpg",
+        "Bottle1":"\/Kekfrankos\/Kekfrankos.jpg",
+        "Bottle2":"\/Kekfrankos\/Kekfrankos.png",
+        "info":"\/Kekfrankos\/Kekfrankos.txt",
+        "wiki":"https://hu.wikipedia.org/wiki/K%C3%A9kfrankos"
+    }],
+    "2":[
+    {
+        "Name":"Sargamuskotaly",
+        "VineImg":"\/Sargamuskotaly\/Sargamuskotalygrape.jpg",
+        "Bottle1":"\/Sargamuskotaly\/Sargamuskotaly.jpg",
+        "Bottle2":"\/Sargamuskotaly\/Sargamuskotaly.png",
+        "info":"\/Sargamuskotaly\/Sargamuskotaly.txt",
+        "wiki":"https://en.wikipedia.org/wiki/Muscat_Blanc_%C3%A0_Petits_Grains"
+    }],
+    "3":[
+    {
+        "Name":"Szurkebarat",
+        "VineImg":"\/Szurkebarat\/Szurkebaratgrape.jpg",
+        "Bottle1":"\/Szurkebarat\/Szurkebarat.jpg",
+        "Bottle2":"\/Szurkebarat\/Szurkebarat.png",
+        "info":"\/Szurkebarat\/Szurkebarat.txt",
+        "wiki":"https://hu.wikipedia.org/wiki/Sz%C3%BCrkebar%C3%A1t"
+    }],
+    "4":[
+    {
+        "Name":"Taramini",
+        "VineImg":"\/taramini\/taraminigrape.jpg",
+        "Bottle1":"\/taramini\/taramini.jpg",
+        "Bottle2":"\/taramini\/taramini.png",
+        "info":"\/taramini\/taramini.txt",
+        "wiki":"https://hu.wikipedia.org/wiki/Tramini"
+    }]
+}

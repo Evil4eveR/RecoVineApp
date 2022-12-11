@@ -1,0 +1,180 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	name : 'View_Result_Screen'
+	MDBoxLayout :
+		orientation : 'vertical'
+		MDToolbar:
+            title: "View Result"
+            elevation: 0
+            radius :dp(10)
+            md_bg_color: app.theme_cls.primary_dark
+            name :'mian_screen'
+            left_action_items:[['arrow-left', lambda x:app.change_screen(self.name)]]
+		MDBoxLayout :
+            orientation :'vertical'
+            size_hint: 1,1
+            padding : [dp(15),dp(10),dp(15),dp(20)]
+            spacing : dp(10)
+            MDBoxLayout :
+                orientation :'vertical'
+                size_hint: 1,0.1
+                md_bg_color : app.theme_cls.primary_dark
+                radius : dp(10)
+                MDLabel :
+                    text : 'THE RESULT'
+                    size_hint_x : 1
+                    halign :'center'
+                    color : 'white'
+                    font_size : dp(28)
+                    bold : True
+
+            MDBoxLayout :
+                orientation :'vertical'
+                size_hint: 1,0.6
+                md_bg_color : app.theme_cls.primary_dark
+                radius : dp(10)
+				padding : dp(5)
+                spacing :dp(5)
+                MDBoxLayout :
+                    orientation :'vertical'
+                    padding : [dp(10),dp(5),dp(190),dp(10)]
+                    spacing :dp(5)
+	                MDBoxLayout :
+	                    id :BoxImage
+		                orientation :'horizontal'
+		                size_hint: 1,0.4
+		                md_bg_color :app.theme_cls.primary_dark
+		                radius : dp(10)
+		                spacing : dp(10)
+		                FitImage :
+		                    id :IMAGE01
+		                    source : 'image/root.jpg'
+		                    radius : [100,70,100,70]
+		                    size_hint : 0.0001,1
+		                FitImage :
+		                    source : 'image/root.jpg'
+		                    radius : [70,70,70,70]
+		                    size_hint : 0.0001,1
+		                FitImage :
+		                    source : 'image/root.jpg'
+		                    radius : [70,70,70,70]
+		                    size_hint : 0.0001,1
+
+		            MDBoxLayout :
+		                orientation :'horizontal'
+		                size_hint: 1,0.25
+		                radius : dp(10)
+		                spacing : dp(10)
+		                MDCard :
+		                    elevation : 0
+		                    size_hint : 0.5,1
+		                    radius : dp(5)
+		                    padding :[dp(10),0,0,0]
+		                    md_bg_color : app.theme_cls.primary_light
+		                    MDLabel :
+		                        text :'87%'
+		                        size_hint_x : 1
+		                        haling : 'center'
+		                        font_size : dp(11)
+
+		                MDCard :
+		                    size_hint : 0.5,1
+		                    radius : dp(5)
+		                    padding :[dp(10),0,0,0]
+		                    elevation : 0
+		                    md_bg_color : app.theme_cls.primary_light
+		                    MDLabel :
+		                        text :'87%'
+		                        size_hint_x : 1
+		                        haling : 'center'
+		                        font_size : dp(11)
+		                MDCard :
+		                    size_hint : 0.5,1
+		                    radius : dp(5)
+		                    padding :[dp(10),0,0,0]
+		                    md_bg_color : app.theme_cls.primary_light
+		                    elevation : 0
+		                    MDLabel :
+		                        text :'87%'
+		                        size_hint_x : 1
+		                        haling : 'center'
+		                        font_size : dp(11)
+
+
+
+	            MDBoxLayout :
+	                orientation :'horizontal'
+	                size_hint: 1,1
+	                md_bg_color : app.theme_cls.primary_dark
+	                radius : dp(10)
+	                padding : [dp(10),dp(5),dp(10),0]
+
+
+
+                MDBoxLayout :
+	                orientation :'horizontal'
+	                size_hint: 1,1
+	                radius : dp(10)
+	                padding : [dp(10),0,dp(10),0]
+
+
+
+                MDBoxLayout :
+	                orientation :'vertical'
+	                size_hint: 1,0.2
+	                radius : dp(10)
+
+
+
+
+
+
+            MDBoxLayout :
+                orientation :'horizontal'
+                size_hint: 1,0.2
+				radius : [dp(100),0,0,dp(100)]
+				spacing : dp(10)
+
+				MDCard :
+					padding : [dp(70),0,0,0]
+					orientation : "vertical"
+					size_hint : 0.5,1
+					elevation: 0
+					name : 'share_screen'
+					on_release :
+						app.change_screen(self.name)
+					FitImage :
+	                    source : 'image/shar.png'
+	                    radius : [70,70,70,70]
+	                    size_hint : 0.6,1
+	                MDLabel :
+                        text :'Share'
+                        size_hint_x : 1
+                        pos_hint_x : {'center_x' : 1}
+                        haling : 'center'
+                        font_size : dp(16)
+                        bold : True
+
+
+				MDCard :
+					id : DeleteImage
+					elevation: 0
+					size_hint : 0.5,1
+					orientation : "vertical"
+					size_hint : 0.5,1
+					padding : [dp(30),0,0,0]
+					on_release :
+						app.Delete_Image(*args)
+					FitImage :
+	                    source : 'image/delete.png'
+	                    radius : [50,50,50,50]
+	                    size_hint : 0.7,0.8
+	                MDLabel :
+                        text :'Delete'
+                        size_hint_x : 1
+                        pos_hint_x : {'center_x' : 1}
+                        haling : 'center'
+                        font_size : dp(16)
+                        bold : True
+
+

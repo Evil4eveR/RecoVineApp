@@ -1,0 +1,30 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	#import webbrowser
+    name :'animation_screen'
+    MDBoxLayout :
+		orientation : 'vertical'
+		size_hint: 1,1
+		MDBoxLayout :
+			orientation : 'vertical'
+			size_hint :1,0.6
+			padding : [0,dp(1),0,dp(80)]
+			spacing : dp(1)
+			Image :
+				id :Image
+				source : 'Image/logo.png'
+				size_hint : 0,0
+				pos_hint : {'center_x':0.5 ,'center_y':0.5}
+	MDFloatLayout :
+		size_hint : 1,0.4
+		MDLabel :
+			id :TEXT
+			text : 'REC VIN APP'
+			pos_hint : {'top':1}
+			size_hint : 0.97,0.1
+            halign :'center'
+            font_name : 'RussoOne'
+            font_size : dp(0)
+			bold : True
+			color : get_color_from_hex('#9f418e')
+
