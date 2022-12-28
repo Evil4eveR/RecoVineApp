@@ -9,13 +9,13 @@ DEMO :
 			orientation : 'horizontal'
 			size_hint: 1,0.13
 			md_bg_color :app.theme_cls.primary_dark
-			padding :[dp(10),dp(10),dp(10),dp(10)]
-			spacing :dp(10)
+			padding :[dp(10),dp(10),dp(10),dp(20)]
+			spacing :dp(100)
 			MDIconButton:
                 icon: "arrow-left"
 			    text_size :'15sp'
 			    user_font_size :'24sp'
-			    text_color : get_color_from_hex("#0000000")
+			    text_color : get_color_from_hex("#000000")
 			    pos_hint_y :{'center_y' : 0.5}
 			    name : "mian_screen"
 			    on_release :
@@ -26,75 +26,89 @@ DEMO :
 			    font_size :'20sp'
 				size_hint_x: 1
 				bold :True
-				pos_hint_x:{'center_x':10}
-				color : get_color_from_hex('#ffffff')
+				pos_hint_x:{'center_x':1}
+				color : get_color_from_hex('#000000')
 		MDBoxLayout :
 			orientation : 'vertical'
 			size_hint: 1,0.8
-			padding :[dp(160),dp(80),dp(160),dp(80)]
-			spacing :dp(10)
-	        MDCard :
-	            orientation :'vertical'
-				radius :[dp(100),dp(100),dp(100),dp(100)]
-				elevation : 0
-				on_release:
-                    import webbrowser
-                    webbrowser.open('https://www.facebook.com/evil4ever.Hisoka/')
-	            FitImage :
-	                source :'Image/fb.png'
-	                radius :[dp(100),dp(100),dp(100),dp(100)]
-	                size_hint : 1,1
-	                elevation : 0
-	        MDCard :
-	            orientation :'vertical'
-				radius :[dp(100),dp(100),dp(100),dp(100)]
-				elevation : 0
+			padding :[dp(150),dp(10),dp(120),dp(80)]
+			spacing :dp(-20)
+	        MDIconButton :
+				icon : "facebook"
+				user_font_size : "65sp"
+				theme_text_color : "Custom"
+				text_color : get_color_from_hex('#0165E1')
+	        MDIconButton :
+				icon : "twitter"
+				user_font_size : "65sp"
+				theme_text_color : "Custom"
+				text_color : get_color_from_hex('#1DA1F2')
 				on_release:
                     import webbrowser
                     webbrowser.open('https://twitter.com/MARMOUD04YASSIN')
-	            FitImage :
-	                source :'Image/twitter.png'
-	                radius :[dp(100),dp(100),dp(100),dp(100)]
-	                size_hint : 1,1
-	                elevation : 0
-	        MDCard :
-	            orientation :'vertical'
-				radius :[dp(100),dp(100),dp(100),dp(100)]
-				elevation : 0
+
+	        MDIconButton :
+				icon : "whatsapp"
+				user_font_size : "65sp"
+				theme_text_color : "Custom"
+				text_color : get_color_from_hex('#25d366')
 				on_release:
-                    import webbrowser
-                    webbrowser.open('https://www.whatsapp.com/')
-	            FitImage :
-	                source :'Image/wattsapp.png'
-	                radius :[dp(100),dp(100),dp(100),dp(100)]
-	                size_hint : 1,1
-	                elevation : 0
-	        MDCard :
-	            orientation :'vertical'
-				radius :[dp(100),dp(100),dp(100),dp(100)]
-				elevation : 0
+                    app.Send_MessageWattsapp()
+
+	        MDIconButton :
+				icon : "gmail"
+				user_font_size : "65sp"
+				theme_text_color : "Custom"
+				text_color : get_color_from_hex('#EA4335')
 				on_release :
 					import webbrowser
                     webbrowser.open('https://mail.google.com')
-	            FitImage :
-	                source :'Image/gmail.png'
-	                radius :[dp(100),dp(100),dp(100),dp(100)]
-	                size_hint : 1,1
-	                elevation : 0
 
-	        MDCard :
-	            orientation :'vertical'
-				radius :[dp(100),dp(100),dp(100),dp(100)]
-				elevation : 0
+
+	        MDIconButton :
+				icon : "google-chrome"
+				user_font_size : "65sp"
+				theme_text_color : "Custom"
+				text_color :  (23, 169, 253)
 				on_release :
 					import webbrowser
                     webbrowser.open('https://people.inf.elte.hu/nwyuk6')
-	            FitImage :
-	                source :'Image/google4.png'
-	                radius :[dp(100),dp(100),dp(100),dp(100)]
-	                size_hint : 1,1
-	                elevation : 0
 
 
 
 
+
+<TextField> :
+	id : bilal
+	orientation :'vertical'
+	size_hint_x:1
+	size_hint_y : None
+	height : dp(170)
+	spacing : dp(10)
+	padding : [dp(40),0,dp(40),0]
+	MDTextField:
+		id :Text_User
+		hint_text: "Phone"
+		text_color : 'white'
+        line_color_normal: 'white'
+        color_mode: 'accent'
+        line_color_focus: 1, 1, 1, 1
+    MDTextField:
+		id :Text_Password
+		hint_text: 'Messages'
+		text_color : 'white'
+        line_color_normal:'white'
+        color_mode:'accent'
+        line_color_focus: 1, 1, 1, 1
+    MDBoxLayout :
+        orientation : 'vertical'
+        size_hint_x : 1
+        size_hint_y : 0.2
+        padding : [dp(75), 0,dp(10),0]
+		MDIconButton :
+	        icon : 'arrow-right-drop-circle'
+			user_font_size :"40sp"
+			theme_text_color: "Custom"
+	        text_color: 'white'
+	        on_press :
+	            root.get_Data_Whatsapp(*args)

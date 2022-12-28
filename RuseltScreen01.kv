@@ -1,6 +1,6 @@
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 DEMO01:
-	name : 'View_Result_Screen'
+	name : 'Result_Screen'
 	id : bilal
 	MDBoxLayout :
 		orientation : 'vertical'
@@ -8,25 +8,15 @@ DEMO01:
 			orientation : 'horizontal'
 			size_hint: 1,0.13
 			md_bg_color :app.theme_cls.primary_dark
-			padding :[dp(10),dp(10),dp(10),dp(15)]
-			spacing :dp(70)
-			MDIconButton:
-                icon: "arrow-left"
-			    text_size :'15sp'
-			    user_font_size :'24sp'
-			    theme_text_color : 'Custom'
-				text_color : "white"
-			    pos_hint_y :{'center_y' : 0.5}
-			    name : "mian_screen"
-			    on_release :
-			        app.change_screen(self.name)
+			padding :[dp(170),dp(10),dp(10),dp(15)]
+
 			MDLabel :
-				text : 'Saved Result'
+				text : 'Result'
 				font_name : 'MPoppins'
 			    font_size :'20sp'
 				size_hint_x: 1
 				bold :True
-				pos_hint_x:{'center_x':1}
+				pos_x : self.pos[0]/2
 				theme_text_color : 'Custom'
 				text_color : "white"
 		MDBoxLayout :
@@ -217,9 +207,13 @@ DEMO01:
                 size_hint: 1,0.1
                 padding : [dp(40),dp(10),dp(40),dp(20)]
                 spacing: dp(90)
-                id : BoxButton
-				ButtonMD:
-
+				MDRoundFlatIconButton:
+				    text: "Back"
+				    icon: "backspace"
+				    text_color: app.theme_cls.primary_dark
+				    font_name : 'RussoOne'
+				    on_release :
+				        app.back_and_save(BoxLayResult)
 				MDRoundFlatIconButton:
 				    text: "Save"
 				    icon: "content-save-all"
@@ -227,15 +221,37 @@ DEMO01:
 				    bold : True
 				    font_name : 'RussoOne'
 				    on_release :
-				        app.Save02()
+				        app.screenshot_Result02()
 
 
-<ButtonMD> :
 
-	text: "delete"
-    icon: "delete"
-    text_color: app.theme_cls.primary_dark
-    font_name : 'RussoOne'
-    name01 : root.name01
-    on_release :
-        app.DeleteResultImage()
+<DER>
+
+
+
+
+
+
+
+<SDsr> :
+	size_hint_y:None
+	orientation :'vertical'
+	padding : [dp(10),dp(10),dp(10),dp(20)]
+    size_hint_y: None
+    height: "130dp"
+    spacing : dp(2)
+    MDBoxLayout :
+        orientation: 'vertical'
+        padding : [dp(100),dp(10),dp(10),dp(20)]
+        size_hint : 1,1
+
+	    MDLabel :
+	        text :'Wait...'
+	        size_hint_x : 1
+	        font_size : dp(16)
+	        bold : True
+	MDSpinner:
+        size_hint: None, None
+        size: dp(46), dp(46)
+        pos_hint: {'center_x': .5, 'center_y': 1}
+        active: True

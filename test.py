@@ -1,12 +1,13 @@
+import collections
+import math
+import os
+
 import cv2
 import imutils
 import numpy as np
-import math
-import collections
-
 from keras.saving.legacy.save import load_model
 from scipy.interpolate import interp1d
-import os
+
 file_name = os.path.dirname(__file__) +'/Model.h5'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -57,10 +58,13 @@ class Calcul_Result() :
 
     def finalresult(self ):
         self.fila = []
+        self.rporcent = []
+
         # number of images
         # loop to give pass images memory
         for i in self.Path :
             self.fila.append(self.createSeries(i))
+            print(i)
 
 
         # fila.append(s2)
@@ -70,13 +74,47 @@ class Calcul_Result() :
         self.r = self.model.predict(self.fila)
         print(self.r)
 
-        my_list = list()
+
+        self.indices = sorted(
+        range(len(self.r[0])),
+        key=lambda index: self.r[0][index],
+        reverse=True)
+        self.summ = sum(self.r[0])
+
+        """my_list = list()
         for i in self.r:
             my_list = my_list + self.getmaxid(list(i))
 
         result = self.getResult(my_list)
+        print(result)
+        return result"""
+        for i in reversed(sorted(self.r[0])):
+            self.rporcent.append(self.percentage(i, self.summ))
+        # printing the percentage of the matching classes sorted
+        print(self.rporcent)
+        # printing the IDs of the matching classes sorted
+        print(self.indices)
 
-        return result
+    def result01(self):
+        return self.rporcent
+    def result02(self):
+        return self.indices
+
+    def percentage(self ,parte, whole):
+
+
+        self.percentage01 =100 *float(parte)/float(whole)
+        return str('%.2f'% self.percentage01)
+
+
+
+
+
+
+
+
+
+
     def createSeries(self ,path):
         self.mat = cv2.imread(path)
         mRows, mCols, mType = self.mat.shape

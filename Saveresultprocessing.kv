@@ -1,6 +1,6 @@
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 DEMO :
-	name : 'Save_screen'
+	name : 'Save_screenProcessing'
 	MDBoxLayout :
 		orientation : 'vertical'
 		size_hint: 1,1
@@ -36,7 +36,7 @@ DEMO :
 							font_size : dp(14)
 		                    bold : True
 		                    on_text :
-		                        app.set_MDCard_List02( SaveCard, self.text , True)
+		                        app.set_MDCard_List( SaveCardProcessing, self.text , True)
 					MDBoxLayout :
 						orientation : 'horizontal'
 						size_hint : 0.3,1
@@ -59,7 +59,7 @@ DEMO :
                 body :1
                 bar_color:app.theme_cls.primary_dark
 	            MDList :
-	                id : SaveCard
+	                id : SaveCardProcessing
 	                spacing : dp(20)
 
 
@@ -93,7 +93,7 @@ DEMO :
 				    text_color : get_color_from_hex("#0000000")
 				    pos_hint_y :{'center_y' : 0.5}
 				    on_release :
-				        app.Remove_MDCard()
+				        app.Remove_MDCard(SaveCardProcessing)
 			MDBoxLayout :
 				orientation : 'vertical'
 				padding: [30,0,0,0]
@@ -140,17 +140,8 @@ DEMO :
 	name : ''
 	text01 : ''
 	botton : ''
-
-    dataHure : ''
-    location : ''
-    commentResult: ''
-    result01 : ''
-    result02: ''
-    result03 : ''
-    result04 : ''
-    result05 : ''
-
-	id :bilal0
+	comment : ''
+	id :__self__.id
 	size_hint_y : None
 	height :'90dp'
 	md_bg_color: app.theme_cls.primary_dark
@@ -174,9 +165,9 @@ DEMO :
 				    icon_color : get_color_from_hex("#0000000")
 				    text_color : get_color_from_hex("#0000000")
 				    pos_hint_y :{'center_y' : 0.5}
-				    text :root.text
+					text : root.text
 				    on_release :
-				        app.Remove_MDCard(self.text)
+				        app.Remove_MDCardProcessing(root.text)
 			MDBoxLayout :
 				orientation : 'vertical'
 				padding: [30,0,0,0]
@@ -212,16 +203,17 @@ DEMO :
 	                line_color : get_color_from_hex("#ffffff")
 	                text_color : get_color_from_hex("#ffffff")
 	                bold :True
-	                location : root.location
-				    dataHure : root.dataHure
-				    commentResult:root.commentResult
-				    result01 : root.result01
-				    result02: root.result02
-				    result03 : root.result03
-				    result04 : root.result04
-				    result05 : root.result05
 	                name : root.button
 	                source : root.source
+	                comment : root.comment
 	                on_press :
-	                    app.change_screen_Data(self.name , self.source ,self.location , self.dataHure ,self.commentResult ,self.result01 , self.result02 ,self.result03 , self.result04 ,self.result05)
+	                    app.RteurnData(self.name , self.source)
 
+<MDNSearch@MDBoxLayout> :
+	orientation : 'vertical'
+	size_hint : 1,1
+	padding : dp(70)
+	MDIconButton :
+		icon: "magnify-close"
+        text_size :'70sp'
+        user_font_size :'24sp'

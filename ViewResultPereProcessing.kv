@@ -1,0 +1,96 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	name : 'View_Result_ScreenProcessing'
+	MDBoxLayout :
+		orientation : 'vertical'
+		MDBoxLayout :
+			orientation : 'vertical'
+			MDBoxLayout :
+				orientation : 'horizontal'
+				size_hint: 1,0.13
+				md_bg_color :app.theme_cls.primary_dark
+				padding :[dp(10),dp(10),dp(10),dp(13)]
+				spacing :dp(80)
+				MDIconButton:
+	                icon: "arrow-left"
+				    text_size :'15sp'
+				    user_font_size :'24sp'
+				    text_color : get_color_from_hex("#000000")
+				    pos_hint_y :{'center_y' : 0.5}
+				    name : "mian_screen"
+				    on_release :
+				        app.change_screen(self.name)
+				MDLabel :
+					text : 'View Save'
+					font_name : 'MPoppins'
+				    font_size :'20sp'
+					size_hint_x: 1
+					bold :True
+					pos_hint_x:{'center_x':1}
+					color : get_color_from_hex('#000000')
+			MDBoxLayout :
+	            orientation :'vertical'
+	            size_hint: 1,1
+	            padding : [dp(15),dp(10),dp(15),dp(20)]
+	            spacing : dp(10)
+	            MDBoxLayout :
+	                orientation :'vertical'
+	                size_hint: 1,0.1
+	                md_bg_color : app.theme_cls.primary_dark
+	                radius : dp(10)
+	                MDLabel :
+	                    text : 'The image'
+	                    size_hint_x : 1
+	                    halign :'center'
+	                    color : 'black'
+	                    font_size : dp(28)
+	                    bold : True
+
+	            MDBoxLayout :
+	                orientation :'vertical'
+	                size_hint: 1,0.6
+	                md_bg_color : app.theme_cls.primary_dark
+	                radius : dp(10)
+					padding : dp(7)
+	                spacing :dp(5)
+	                MDBoxLayout :
+	                    orientation : 'vertical'
+	                    size_hint  : 1,1
+	                    md_bg_color:get_color_from_hex('#ffffff')
+	                    radius : dp(10)
+	                    padding : dp(6)
+	                    FitImage :
+	                        id : Add_PathProcessing
+	                        size_hint : 1,1
+	                        md_bg_color : app.theme_cls.primary_dark
+	                        radius : [dp(10),dp(10),dp(10),dp(10)]
+	                        source :'img/2.jpg'
+
+	            MDBoxLayout :
+	                orientation :'vertical'
+	                size_hint: 1,0.2
+					radius : [dp(100),0,0,dp(100)]
+					padding : [dp(120),0,0,0]
+					MDIconButton :
+						icon : "orbit-variant"
+						user_font_size : "60sp"
+						theme_text_color : "Custom"
+						text_color : app.theme_cls.primary_dark
+						name : 'mian_screen'
+						image : Add_PathProcessing.source
+						on_release :
+							app.RteurnProcessing(self.name , self.image)
+					MDBoxLayout :
+						orientation : 'vertical'
+						size_hint : 1,1
+						padding : [dp(5),0,0,dp(7)]
+		                MDLabel :
+	                        text :'Processing'
+	                        size_hint_x : 1
+	                        font_size : dp(16)
+	                        bold : True
+
+
+
+
+

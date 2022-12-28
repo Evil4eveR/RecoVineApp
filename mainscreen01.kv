@@ -1,0 +1,302 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+DEMO :
+	name : 'mian_screen'
+	id : main_Screen
+	MDBoxLayout :
+		orientation : 'vertical'
+		MDNavigationLayout:
+	        ScreenManager :
+	            Screen :
+	                MDBoxLayout :
+
+	                    orientation :'vertical'
+	                    spacing :dp(0)
+	                    MDToolbar:
+	                        title: "Main Page"
+	                        elevation: 0
+	                        anchor_title: 'center'
+	                        radius :dp(10)
+	                        theme_specific_text_color : 'Custom'
+	                        md_bg_color: app.theme_cls.primary_dark
+	                        specific_text_color : app.specific_text_color
+	                        left_action_items:[['menu', lambda x: nav_drawer.set_state("open")]]
+	                    MDBoxLayout :
+
+		                    orientation :'vertical'
+		                    size_hint: 1,0.1
+		                    spacing : dp(5)
+		                    MDBoxLayout :
+		                        orientation :'vertical'
+		                        size_hint: 1,0.3
+		                        padding : [dp(70),dp(40),dp(70),dp(1)]
+		                        MDCard :
+		                            id : BoxMainSave
+		                            orientation : 'vertical'
+		                            size_hint : 1,1
+		                            radius : dp(20)
+		                            elevation : dp(0)
+		                            padding : dp(10)
+		                            md_bg_color: app.theme_cls.primary_dark
+		                            name02 : 'image1'
+		                            on_press:
+		                                app.Camera(self.name02)
+		                            FitImage :
+		                                id :Card01
+		                                radius : [20,20,20,20]
+		                                source : 'Image/leaf.png'
+		                                size_hint : 1,1
+
+		                    MDBoxLayout :
+			                    orientation :'horizontal'
+			                    size_hint: 1,0.005
+			                    MDBoxLayout :
+			                        orientation :'vertical'
+			                        size_hint : 0.1 , 1
+			                        md_bg_color : app.theme_cls.primary_dark
+								MDBoxLayout :
+			                        orientation :'vertical'
+			                        size_hint  : 0.5, 1
+			                    MDBoxLayout :
+			                        orientation :'vertical'
+			                        size_hint  : 0.1 , 1
+			                        md_bg_color : app.theme_cls.primary_dark
+
+		                    MDBoxLayout :
+		                        orientation :'vertical'
+		                        size_hint: 1,0.06
+		                        padding : [dp(50),0,dp(50),0]
+
+		                        MDBoxLayout :
+			                        orientation :'vertical'
+			                        size_hint: 1,1
+			                        md_bg_color: app.theme_cls.primary_dark
+			                        radius : dp(15)
+			                        MDLabel :
+			                            id : Main_Address
+										text : '2022-02-30 \nAlgiera-Tepaza'
+										size_hint : 1,1
+							            halign :'center'
+							            font_name : 'MPoppins'
+							            font_size : dp(16)
+										theme_text_color : 'Custom'
+										text_color : "white"
+		                    MDBoxLayout :
+		                        orientation :'vertical'
+		                        size_hint: 1,0.1
+		                        padding : [dp(40),dp(20),dp(40),dp(20)]
+		                        MDBoxLayout :
+			                        orientation :'vertical'
+			                        size_hint: 1,1
+			                        canvas :
+			                            Color :
+			                                rgb : 200/255,200/255,200/255,1
+			                            RoundedRectangle :
+			                                size : self.size
+			                                pos : self.pos
+			                                radius: [22,22,22,22]
+			                        TextInput:
+			                            id : Input_Comment
+                                        hint_text: "Comment..."
+                                        size_hint : 1 ,None
+                                        pos_hint : {'center_x' :0.5 ,'center_y' :0.5}
+                                        font_size : '18sp'
+                                        font_name : 'RussoOne'
+                                        height : self.minimum_height
+                                        background_color : 0,0,0,0
+                                        cursor_color : app.theme_cls.primary_dark
+                                        cursor_width : '3sp'
+                                        padding : 15
+                                        multiline : False
+                                        foreground : app.theme_cls.primary_dark
+		                    MDBoxLayout :
+		                        orientation :'horizontal'
+		                        size_hint: 1,0.1
+		                        padding : [dp(40),dp(10),dp(40),dp(20)]
+		                        spacing: dp(90)
+								MDRoundFlatIconButton:
+								    text: "Save"
+								    icon: "content-save-all"
+								    text_color: app.theme_cls.primary_dark
+								    font_name : 'RussoOne'
+								    on_release :
+								        app.screenshot(main_Screen)
+								MDRoundFlatIconButton:
+								    text: "Processing"
+								    icon: "orbit-variant"
+								    text_color: app.theme_cls.primary_dark
+								    bold : True
+								    font_name : 'RussoOne'
+								    on_release :
+								        app.Conform_Image()
+							MDBoxLayout :
+		                        orientation :'horizontal'
+		                        size_hint: 1,0.02
+		                        padding : dp(10)
+
+			MDNavigationDrawer :
+                id : nav_drawer
+
+                on_state :app.change_nav(self.state)
+                MDBoxLayout :
+                    orientation : 'vertical'
+                    padding : (0)
+                    MDBoxLayout :
+	                    orientation  :'horizontal'
+	                    size_hint_y: 0.3
+	                    FitImage :
+	                        source : 'image/root.jpg'
+	                        size_hint : 1,1
+
+
+
+	                MDBoxLayout :
+	                    orientation  :'horizontal'
+	                    size_hint_y: 1
+						ScrollView:
+
+					        DrawerList:
+					            id: md_list
+					            ItemDrawer:
+					                id: icon01
+					                icon :'content-save'
+					                text :'Saved Result'
+					                name : 'Save_screen'
+					                on_release :
+					                    app.Save_file02(self.name)
+
+					            ItemDrawer:
+					                id: icon01
+					                icon :'content-save'
+					                text :'Saved Image'
+					                name : 'Save_screenProcessing'
+					                on_release :
+					                    app.Save_file(self.name)
+					            ItemDrawer:
+					                id: icon01
+					                icon :'theme-light-dark'
+					                text :'Dark-Mode'
+					                on_release :
+					                    app.change_mode(*args)
+					            ItemDrawer:
+					                id: icon01
+					                icon :'account-group'
+					                text :'About-Us'
+					                name : 'About_Screen'
+					                on_release :
+					                    app.change_screen(self.name)
+					            ItemDrawer:
+					                id: icon01
+					                icon :'contacts'
+					                text :'contact-Us'
+					                name : 'share_screen'
+					                on_release :
+					                    app.change_screen(self.name)
+					            ItemDrawer:
+					                id: icon01
+					                icon :'exit-to-app'
+					                text :'Exit-To'
+					                on_release :
+					                    app.Exit()
+
+<ItemDrawer>:
+	text :''
+	icon :''
+	text : root.text
+    theme_text_color: "Custom"
+    text_color : app.theme_cls.primary_dark
+	bold : True
+
+    IconLeftWidget:
+        id: icon01
+        icon: root.icon
+        theme_text_color: "Custom"
+        text_color : app.theme_cls.primary_dark
+
+
+
+
+
+<MD_relativelayout> :
+	text :''
+	source:''
+	name : ''
+	id: __self__.id
+	size_hint_y : None
+	height :'90dp'
+	md_bg_color: app.theme_cls.primary_dark
+	radius : dp(20)
+	MDCard :
+		orientation : 'vertical'
+		md_bg_color: app.theme_cls.primary_dark
+		radius : dp(20)
+		MDBoxLayout :
+			orientation : 'horizontal'
+			padding: [10,10,10,10]
+			spacing : dp(10)
+			MDBoxLayout :
+				orientation : 'horizontal'
+				#padding: [5,5,5,5]
+
+				MDCard:
+					md_bg_color: app.theme_cls.primary_dark
+					radius : [10,10,10,10]
+					size_hint: 1,1
+					elevation :0
+					FitImage :
+						source : root.source
+						size_hint: 1,1
+						radius : [10,10,10,10]
+			MDBoxLayout :
+				orientation : 'horizontal'
+				padding: [10,0,0,0]
+				size_hint_x : 1
+				MDLabel :
+					font_name : 'MPoppins'
+				    font_size :'17sp'
+					text :root.text
+					size_hint_x: 1
+					pos_hint_x:{'center_x':10}
+					color : 'white'
+
+			MDBoxLayout :
+				orientation : 'horizontal'
+				padding: [10,0,10,20]
+				spacing : dp(10)
+				MDRoundFlatButton:
+	                text: "Add +"
+	                size_hint_x :None
+	                line_color : get_color_from_hex("ffffff")
+	                text_color : get_color_from_hex("ffffff")
+
+	                on_release :
+	                    app.change_Iamge(root.name)
+
+
+
+<Content> :
+	orientation : 'vertical'
+	MDRoundFlatButton:
+        text: "Add +"
+        text_color: 1, 1, 1, 1
+        size_hint_x :None
+        line_color : get_color_from_hex("#F9C449")
+        text_color : get_color_from_hex("#F9C449")
+    MDRoundFlatButton:
+        text: "Add +"
+        text_color: 1, 1, 1, 1
+        size_hint_x :None
+        line_color : get_color_from_hex("#F9C449")
+        text_color : get_color_from_hex("#F9C449")
+
+
+
+<MDProBar>:
+    id: progress
+    pos_hint: {"center_y": .6}
+    type: "indeterminate"
+
+
+<MDSpinner>:
+    size_hint: None, None
+    size: dp(46), dp(46)
+    pos_hint: {'center_x': .5, 'center_y': .5}

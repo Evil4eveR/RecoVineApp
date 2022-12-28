@@ -3,13 +3,29 @@ DEMO :
 	name : 'About_Screen'
 	MDBoxLayout :
 		orientation : 'vertical'
-		MDToolbar:
-            title: "About US"
-            elevation: 0
-            radius :dp(10)
-            md_bg_color: app.theme_cls.primary_dark
-            name :'mian_screen'
-            left_action_items:[['arrow-left', lambda x:app.change_screen(self.name)]]
+		MDBoxLayout :
+			orientation : 'horizontal'
+			size_hint: 1,0.13
+			md_bg_color :app.theme_cls.primary_dark
+			padding :[dp(10),dp(10),dp(10),dp(20)]
+			spacing :dp(10)
+			MDIconButton:
+                icon: "arrow-left"
+			    text_size :'15sp'
+			    user_font_size :'24sp'
+			    text_color : get_color_from_hex("#000000")
+			    pos_hint_y :{'center_y' : 0.5}
+			    name : "mian_screen"
+			    on_release :
+			        app.change_screen(self.name)
+			MDLabel :
+				text : 'About US'
+				font_name : 'MPoppins'
+			    font_size :'20sp'
+				size_hint_x: 1
+				bold :True
+				pos_hint_x:{'center_x':10}
+				color : get_color_from_hex('#000000')
         MDBoxLayout :
             orientation :'vertical'
             ScrollView :
@@ -36,7 +52,8 @@ DEMO :
 		                    text : 'About US'
 		                    size_hint_x : 1
 		                    halign :'center'
-		                    color : app.theme_cls.primary_dark
+		                    theme_text_color : 'Custom'
+		                    text_color : 'green'
 		                    font_size : dp(26)
 		                    bold : True
 		            MDBoxLayout :
@@ -46,7 +63,8 @@ DEMO :
 			            MDLabel :
 		                    text : 'The     department   of    Data    Science   and \nEngineering  at the Faculty of  Informatics of \nELTE   is     conducting   a  project   aimed  at \nrecognizing  the types of  the  vine  based on\nthe  image   of   its   leaves.  The   underlying\nmachine  learning   methods  are  developed\nby Jose Luis  Seixas Junior  a Phd student at \nthe department  \n \nThe    goal    of   the   thesis  is  to   develop a \nmobile    application   supporting   the   given  \nproject  in  which  a  person  makes  a  photo \nand  receives  the  recommendation  ranking \nfor the type of the related vine.\n \nThe   application   should   be   user-friendly, \nworking  in  both  online  and    offline  mode\nand   its    requirements    for   the   technical \ninfrastructure  (i.e.   the  performance   of  a \nmobile   device )    should   be    as    low    as \npossible  in  order to  be   used   on    various \ndevices and platforms.'
 		                    haling : 'center'
-		                    color : app.theme_cls.primary_dark
+		                    theme_text_color : 'Custom'
+		                    text_color : 'green'
 		                    font_size : dp(16)
 		                    bold : True
 		            MDBoxLayout :
